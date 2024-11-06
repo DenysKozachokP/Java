@@ -12,7 +12,7 @@ public class Main2 {
 
         System.out.println("Учасники до сортування:");
         team.printParticipants();
-        
+
         team.sortParticipantsByAge();
         System.out.println("\nУчасники після сортування за віком:");
         team.printParticipants();
