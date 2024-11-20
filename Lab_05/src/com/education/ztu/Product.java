@@ -1,29 +1,68 @@
 package com.education.ztu;
+import java.util.*;
 
 class Product {
     private String name;
     private double price;
     private String category;
-    private int count;
-    private double discount;
+    private int quantity;
+    private int id;
 
-    public Product(String name, double price, String category, int count, int discount) {
+    public Product(String name, double price, String category, int quantity, int id) {
         this.name = name;
         this.price = price;
         this.category = category;
-        this.count = count;
-        this.discount = discount;
+        this.quantity = quantity;
+        this.id = id;
     }
 
-    public String getName() { return this.name; }
-    public double getPrice() { return this.price; }
-    public String getCategory() { return this.category; }
-    public int getCount(){return this.count;}
-    public double getDisount(){return this.discount;}
+    // Добавляем геттеры
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    // Переопределяем методы equals и hashCode для корректной работы с методами indexOf и sort
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Product product = (Product) obj;
+        return Double.compare(product.price, price) == 0 &&
+                quantity == product.quantity &&
+                id == product.id &&
+                Objects.equals(name, product.name) &&
+                Objects.equals(category, product.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, category, quantity, id);
+    }
 
     @Override
     public String toString() {
-        double finalprice = price - (price/100 * discount);
-        return "Product{name='" + name + "', price=" + price + ", category='" + category + "', count = " +count + ", discount = "+ discount + ", finalprice = "+ finalprice +"}";
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", category='" + category + '\'' +
+                ", quantity=" + quantity +
+                ", id=" + id +
+                '}';
     }
 }

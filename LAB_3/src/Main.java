@@ -12,6 +12,12 @@ public class Main {
         studentTeam1.addNewParticipant(student1);
         studentTeam1.addNewParticipant(student2);
 
+        Team<Student> scholarTeam1 = new Team<>("Шкільна команда 1");
+        Student scholar1 = new Student("Ighor", 20);
+        Student scholar2 = new Student("Sen", 22);
+
+        studentTeam1.playWith(scholarTeam1);
+
         Team<Student> clonedTeam = new Team<>(studentTeam1);
         System.out.println("Оригінальна команда: " + studentTeam1);
         System.out.println("Клонована команда: " + clonedTeam);

@@ -18,7 +18,6 @@ public class Team<T extends Participant & Cloneable>{
         this.participants = new ArrayList<>();
         for (T participant : otherTeam.participants) {
             try {
-                // Використання явно приведеного типу T після клонування
                 this.participants.add((T) participant.clone());
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
@@ -32,11 +31,15 @@ public class Team<T extends Participant & Cloneable>{
             participants.add(participant);
             System.out.println("До команди " + name + " був доданий учасник " + participant.getName());
         }catch (Exception e){
-            System.out.print("error");
+            System.out.print("Неможливо додати учасника");
         }
     }
 
     public void playWith(Team<T> otherTeam) {
+        if (otherTeam == null) {
+            throw new IllegalArgumentException("Противник не може бути null");
+        }
+
         String winnerName;
         Random random = new Random();
         int i = random.nextInt(2);

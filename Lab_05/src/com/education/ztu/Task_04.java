@@ -12,7 +12,8 @@ public class Task_04 {
         System.out.println("Last: " + productQueue.peekLast());
 
         productQueue.pop();
+        System.out.println("Queue: " + productQueue);
         productQueue.removeLast();
-        System.out.println("Queue after removal: " + productQueue);
+        System.out.println("Queue: " + productQueue);
     }
 }

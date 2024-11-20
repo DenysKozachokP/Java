@@ -9,7 +9,7 @@ public class Task_02 {
     public static void processString(String str) {
         System.out.println("Останній символ рядка: " + str.charAt(str.length() - 1));
 
-        System.out.println("Чи закінчується рядок на '!!!': " + str.endsWith("!!!"));
+        System.out.println("'!!!': " + str.endsWith("!!!"));
 
         System.out.println("Чи починається рядок на 'I learn ': " + str.startsWith("I learn "));
 
