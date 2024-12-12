@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.education.ztu'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '11'  // Встановіть відповідну версію JDK
+targetCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter:2.7.3'  // Приклад залежності
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+application {
+    mainClass = 'com.education.ztu.Main'
+}
+task myGroovyTask {
+    doLast {
+        println "This is my custom Groovy task!"
+    }
+}
